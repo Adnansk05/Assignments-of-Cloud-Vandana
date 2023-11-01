@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <style>
+    /* Styling the Body element i.e. Color, Font, Alignment */
+    body {
+      background-color:#87CEEB;
+      font-family: Verdana;
+      text-align: center;
+    }
+
+    /* Styling the Form (Color, Padding, Shadow) */
+    form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Styling form-control Class */
+    .form-control {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    /* Styling form-control Label */
+    .form-control label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Styling form-control input, select, textarea */
+    .form-control input,
+    .form-control select,
+    .form-control textarea {
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      padding: 10px;
+      display: block;
+      width: 95%;
+    }
+
+    /* Styling form-control Radio button and Checkbox */
+    .form-control input[type="radio"],
+    .form-control input[type="checkbox"] {
+      display: inline-block;
+      width: auto;
+    }
+
+    /* Styling Button */
+    button {
+      background-color: #05c46b;
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 21px;
+      display: block;
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Survey Form</h1>
+
+  <!-- Create Form -->
+  <form id="form" onsubmit="return false;">
+    <!-- Details -->
+    <div class="form-control">
+      <label for="first-name">First Name *</label>
+      <input type="text" id="first-name" placeholder="Enter your first name" required>
+    </div>
+
+    <div class="form-control">
+      <label for="last-name">Last Name *</label>
+      <input type="text" id="last-name" placeholder="Enter your last name" required>
+    </div>
+
+    <div class="form-control">
+      <label for="dob">Date of Birth *</label>
+      <input type="date" id="dob" required>
+    </div>
+
+    <div class="form-control">
+      <label for="country">Country *</label>
+      <select id="country" required>
+        <option value="">--Select Country--</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+        <option value="Australia">Australia</option>
+        <option value="India">India</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Gender *</label>
+      <label for="male">
+        <input type="checkbox" id="male" name="gender" value="male" required>Male
+      </label>
+      <label for="female">
+        <input type="checkbox" id="female" name="gender" value="female" required>Female
+      </label>
+      <label for="other">
+        <input type="checkbox" id="other" name="gender" value="other" required>Other
+      </label>
+    </div>
+
+    <div class="form-control">
+      <label for="profession">Profession *</label>
+      <input type="text" id="profession" placeholder="Enter your profession" required>
+    </div>
+
+    <div class="form-control">
+      <label for="email">Email *</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-control">
+      <label for="mobile">Mobile Number *</label>
+      <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" onclick="submitForm()">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    function submitForm() {
+      // Get form values
+      const firstName = document.getElementById("first-name").value;
+      const lastName = document.getElementById("last-name").value;
+      const dob = document.getElementById("dob").value;
+      const country = document.getElementById("country").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const profession = document.getElementById("profession").value;
+      const email = document.getElementById("email").value;f
+      const mobile = document.getElementById("mobile").value;
+
+      // Create popup message
+      const message = `First Name: ${firstName}\nLast Name: ${lastName}\nDate of Birth: ${dob}\nCountry: ${country}\nGender: ${gender}\nProfession: ${profession}\nEmail: ${email}\nMobile Number: ${mobile}`;
+
+      // Display popup message
+      alert(message);
+
+      // Reset form
+      document.getElementById("form").reset();
+    }
+  </script>
+</body>
+</html>
